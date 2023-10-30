@@ -14,10 +14,5 @@
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306
-  },
-  "production": {
-    "use_env_variable": "DATABASE_URL=mysql://root:Password@localhost:3306/techBlog_db",
-    "dialect": "mysql"
-
   }
 }
