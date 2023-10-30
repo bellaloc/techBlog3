@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Include a link to a CSS framework if you're using one, e.g., Bootstrap -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+        <a href="/">Back to Homepage</a>
+        <a href="/logout">Log Out</a>
+    </header>
+    <main class="container">
+        <section>
+            <h2>Your Blog Posts</h2>
+            {{#if posts}}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each posts}}
+                            <tr>
+                                <td>{{title}}</td>
+                                <td>{{content}}</td>
+                                <td>
+                                    <a href="/edit/{{id}}">Edit</a>
+                                    <a href="/delete/{{id}}">Delete</a>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <p>You haven't created any blog posts yet.</p>
+            {{/if}}
+        </section>
+        <section>
+            <h2>Create a New Blog Post</h2>
+            <form action="/create" method="POST">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content" rows="4" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create Post</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

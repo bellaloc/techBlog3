@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Tech Blog</h1>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="/login" class="nav-link">Log In</a></li>
+                <li class="nav-item"><a href="/signup" class="nav-link">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section>
+            <h2>Latest Blog Posts</h2>
+            {{#if posts}}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Content</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each posts}}
+                            <tr>
+                                <td>{{title}}</td>
+                                <td>{{username}}</td>
+                                <td>{{content}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <p>No blog posts available.</p>
+            {{/if}}
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{post.title}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>{{post.title}}</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="post">
+            <h2>{{post.title}}</h2>
+            <p>{{post.content}}</p>
+            <p>Posted by: {{post.username}}</p>
+            <a href="/post/{{post.id}}/edit">Edit Post</a>
+            <a href="/post/{{post.id}}/delete">Delete Post</a>
+        </section>
+        <section class="comments">
+            <h2>Comments</h2>
+            {{#if comments}}
+                <ul>
+                    {{#each comments}}
+                        <li class="comment">
+                            <p>{{this.text}}</p>
+                            <p>Comment by: {{this.username}}</p>
+                            <a href="/comment/{{this.id}}/delete">Delete Comment</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{else}}
+                <p>No comments yet.</p>
+            {{/if}}
+        </section>
+        <section class="comment-form">
+            <h2>Add a Comment</h2>
+            <form action="/comment/{{post.id}}" method="POST">
+                <div>
+                    <label for="text">Your Comment:</label>
+                    <textarea id="text" name="text" rows="4" required></textarea>
+                </div>
+                <div>
+                    <button type="submit">Add Comment</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

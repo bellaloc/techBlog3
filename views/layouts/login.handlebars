@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add viewport meta tag -->
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Login to Tech Blog</h1>
+    </header>
+    <main class="container">
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" required> <!-- Corrected the typo here -->
+            </div>
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+        <section>
+            <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+        </section>
+    </main>
+</body>
+</html>
