@@ -2,6 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("./config/passport"); // You'll create this
 const db = require("./models");
+require('dotenv').config();
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,8 +18,8 @@ app.use(
     secret: "your-secret", // Change this to a more secure secret
     resave: true,
     saveUninitialized: true
-  });
-);
+  }));
+;
 app.use(passport.initialize());
 app.use(passport.session());
 

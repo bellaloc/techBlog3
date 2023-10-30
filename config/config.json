@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "your_dev_username",
-    "password": "your_dev_password",
-    "database": "your_dev_database",
+    "username": "root",
+    "password": "Password",
+    "database": "techBlog_db",
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306
   },
   "test": {
-    "username": "your_test_username",
-    "password": "your_test_password",
-    "database": "your_test_database",
+    "username": "root",
+    "password": "Password",
+    "database": "techBlog_db",
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "use_env_variable": "DATABASE_URL=mysql://root:Password@localhost:3306/techBlog_db",
     "dialect": "mysql"
 
   }
